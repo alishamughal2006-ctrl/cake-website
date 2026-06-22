@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet Bakery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#FFF7F5;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:white;
+transition:.4s;
+}
+
+header.scrolled{
+padding:12px 8%;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.logo{
+font-size:32px;
+font-weight:800;
+color:#B83A3A;
+}
+
+nav{
+display:flex;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+position:relative;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:0;
+height:3px;
+background:#B83A3A;
+transition:.3s;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+.order-btn{
+background:#B83A3A;
+color:white;
+border:none;
+padding:12px 24px;
+border-radius:30px;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:80px 8%;
+background:linear-gradient(135deg,#d65a5a,#b83a3a);
+color:white;
+border-radius:0 0 40px 40px;
+}
+
+.hero-text{
+animation:slideLeft 1s ease;
+}
+
+.hero-text h1{
+font-size:60px;
+max-width:550px;
+line-height:1.1;
+}
+
+.hero-text p{
+font-size:22px;
+margin:20px 0;
+}
+
+.hero-text button{
+padding:15px 30px;
+border:none;
+border-radius:40px;
+font-weight:700;
+cursor:pointer;
+}
+
+.hero-image{
+animation:slideRight 1s ease;
+}
+
+.hero img{
+width:420px;
+border-radius:50%;
+border:8px solid white;
+}
+
+@keyframes slideLeft{
+from{
+opacity:0;
+transform:translateX(-100px);
+}
+to{
+opacity:1;
+transform:translateX(0);
+}
+}
+
+@keyframes slideRight{
+from{
+opacity:0;
+transform:translateX(100px);
+}
+to{
+opacity:1;
+transform:translateX(0);
+}
+}
+
+/* CATEGORIES */
+
+.categories{
+padding:60px 8%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+.category{
+background:white;
+padding:25px;
+border-radius:20px;
+text-align:center;
+font-weight:600;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.category:hover{
+transform:translateY(-8px);
+}
+
+/* PRODUCTS */
+
+.products{
+padding:20px 8%;
+}
+
+.products h2{
+font-size:35px;
+margin-bottom:30px;
+color:#B83A3A;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:15px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+transition:.4s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-8px) scale(1.03);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.card h3{
+margin-top:15px;
+}
+
+.price{
+color:#B83A3A;
+font-weight:700;
+margin-top:10px;
+}
+
+/* PROMISE */
+
+.promise{
+padding:70px 8%;
+}
+
+.promise h2{
+font-size:35px;
+margin-bottom:30px;
+color:#B83A3A;
+}
+
+.promise-box{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+
+}
+
+.promise-item{
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+transition:.3s;
+
+}
+.promise-item:hover{
+transform:translateY(-8px);
+
+
+}
+
+/* GALLERY */
+
+.gallery{
+padding:50px 8%;
+}
+
+.gallery h2{
+font-size:35px;
+margin-bottom:30px;
+color:#B83A3A;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+cursor: pointer;
+}
+
+.gallery-grid img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:20px;
+transition:.4s;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.05);
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+margin:50px 8%;
+padding:50px;
+background:#B83A3A;
+border-radius:30px;
+text-align:center;
+color:white;
+}
+
+.newsletter input{
+padding:15px;
+width:300px;
+border:none;
+border-radius:30px;
+margin-top:20px;
+}
+
+.newsletter button{
+padding:15px 25px;
+border:none;
+border-radius:30px;
+margin-left:10px;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:white;
+padding:30px;
+text-align:center;
+margin-top:30px;
+}
+
+/* TOP BUTTON */
+
+#topBtn{
+position:fixed;
+right:20px;
+bottom:20px;
+width:50px;
+height:50px;
+border:none;
+border-radius:50%;
+background:#B83A3A;
+color:white;
+font-size:22px;
+cursor:pointer;
+display:none;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+gap:30px;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.hero img{
+width:280px;
+}
+
+nav{
+display:none;
+}
+}
+
+</style>
+</head>
+<body>
+
+<header id="header">
+
+<div class="logo">SweetBakery</div>
+
+<nav>
+<a href="#products">Cakes</a>
+<a href="#promise">Promise</a>
+<a href="#gallery">Gallery</a>
+</nav>
+
+<button class="order-btn">Order Now</button>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+<h1>DECADENT CHOCOLATE BLISS!</h1>
+<p>Satisfy Your Sweet Cravings</p>
+<button>Save 20%</button>
+</div>
+
+<div class="hero-image">
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800" alt="">
+</div>
+
+</section>
+
+<section class="categories">
+
+<div class="category">🎂 Classic Cakes</div>
+<div class="category">🍰 Gourmet Cakes</div>
+<div class="category">🧁 Desserts</div>
+<div class="category">🍪 Cookies</div>
+
+</section>
+
+<section class="products" id="products">
+
+<h2>Best Seller Cakes</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=800">
+<h3>Chocolate Truffle Cake</h3>
+<p class="price">$25</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=800">
+<h3>Vanilla Cream Cake</h3>
+<p class="price">$22</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800">
+<h3>Fruit Cake</h3>
+<p class="price">$28</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800">
+<h3>Premium Cake</h3>
+<p class="price">$30</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="promise" id="promise">
+
+<h2>Our Promise</h2>
+
+<div class="promise-box">
+
+<div class="promise-item">🚚 On-Time Delivery</div>
+<div class="promise-item">🎂 Freshly Baked</div>
+<div class="promise-item">⭐ Premium Quality</div>
+<div class="promise-item">💝 Custom Designs</div>
+
+</div>
+
+</section>
+
+<section class="gallery" id="gallery">
+
+<h2>Gallery</h2>
+
+<div class="gallery-grid">
+
+<img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800">
+<img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800">
+<img src="https://plus.unsplash.com/premium_photo-1668698353797-d6e3c4b86ced?w=800">
+<img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=800">
+<img src="https://images.unsplash.com/photo-1715187985248-84b03aabe629?w=800">
+<img src="https://images.unsplash.com/photo-1558326567-98ae2405596b?w=800">
+<img src="https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=800">
+<img src="https://images.unsplash.com/photo-1580915411954-282cb1b0d780?w=800">
+
+</div>
+
+</section>
+
+<section class="newsletter">
+
+<h2>Subscribe Newsletter</h2>
+
+<input type="email" placeholder="Enter your email">
+<button>Subscribe</button>
+
+</section>
+
+<footer>
+
+<h3>SweetBakery © 2026</h3>
+<p>Made with ❤️ for Cake Lovers</p>
+
+</footer>
+
+<button id="topBtn">↑</button>
+
+<script>
+
+const header=document.getElementById("header");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>50){
+header.classList.add("scrolled");
+}
+else{
+header.classList.remove("scrolled");
+}
+
+});
+
+const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>300){
+topBtn.style.display="block";
+}
+else{
+topBtn.style.display="none";
+}
+
+});
+
+topBtn.onclick=()=>{
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+};
+
+</script>
+
+
+
+</body>
+</html>
